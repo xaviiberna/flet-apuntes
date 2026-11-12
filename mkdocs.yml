@@ -1,0 +1,116 @@
+site_name: Flet · Lista de tareas
+site_description: Apuntes y prácticas de Flet explicados paso a paso, función por función
+site_author: Javier Bernabéu Martínez
+# 👉 Cambia usuario/repositorio por los tuyos antes de subirlo
+site_url: https://xaviiberna.github.io/flet-apuntes/
+repo_url: https://github.com/xaviiberna/flet-apuntes
+repo_name: flet-apuntes
+edit_uri: ""
+
+theme:
+  name: material
+  language: es
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle: { icon: material/weather-night, name: Modo oscuro }
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle: { icon: material/weather-sunny, name: Modo claro }
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow
+
+plugins:
+  - search:
+      lang: es
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      base_path: ["."]
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.keys
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Inicio: index.md
+  - Empezar:
+      - Instalación y entorno: empezar/instalacion.md
+      - Vocabulario y esquema: empezar/vocabulario.md
+  - Pasos (tutorial):
+      - pasos/index.md
+      - 1 · Hola mundo: pasos/paso1.md
+      - 2 · Página y estilo: pasos/paso2.md
+      - 3 · TextField y Button: pasos/paso3.md
+      - 4 · Eventos: pasos/paso4.md
+      - 5 · Layouts y Checkbox: pasos/paso5.md
+      - 6 · Borrar y lambda: pasos/paso6.md
+      - 7 · Validación y Enter: pasos/paso7.md
+      - 8 · Contador (app final): pasos/paso8.md
+      - 9 · Clases (POO): pasos/paso9.md
+  - Práctica · Modificaciones:
+      - practica/index.md
+      - Tareas repetidas: practica/repetidas.md
+      - Color del contador: practica/color-contador.md
+      - Borrar completadas: practica/borrar-completadas.md
+      - Botón Modificar: practica/modificar.md
+      - Publicar (web, APK, Windows, Linux): practica/publicar.md
+  - Función por función:
+      - funciones/index.md
+      - main: funciones/main.md
+      - actualizar_contador: funciones/actualizar_contador.md
+      - eliminar_tarea: funciones/eliminar_tarea.md
+      - añadir_tarea: funciones/anadir_tarea.md
+      - borrar_completadas: funciones/borrar_completadas.md
+      - modificar_tarea: funciones/modificar_tarea.md
+      - ordenar_tareas (nueva): funciones/ordenar_tareas.md
+      - Clases Tarea y AppTareas: funciones/clases.md
+  - Ordenar listas (key + lambda):
+      - ordenar/index.md
+      - Cómo funciona sort y key: ordenar/como-funciona.md
+      - Recetas (criterios): ordenar/recetas.md
+      - Dónde va en el código: ordenar/donde-va.md
+      - Versión con clases: ordenar/clases.md
+      - Ordenar por la key del control: ordenar/key-control.md
+  - Controles y eventos:
+      - controles/index.md
+      - Controles: controles/controles.md
+      - Eventos y manejadores: controles/eventos.md
+      - lambda explicada: controles/lambda.md
+  - Referencia:
+      - Errores frecuentes: referencia/errores.md
+      - Ejercicios: referencia/ejercicios.md
+      - Todo el código: referencia/codigo.md
