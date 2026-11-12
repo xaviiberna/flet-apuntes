@@ -14,7 +14,7 @@ Todos los controles de Flet tienen la propiedad `key`. Sirve para **identificar*
 
 Asigna a cada fila un número según se crea, y ordena por él para **volver al orden original**:
 
-```python title="codigo/ordenar_por_key_control.py"
+```python linenums="1" title="codigo/ordenar_por_key_control.py"
 --8<-- "codigo/ordenar_por_key_control.py"
 ```
 

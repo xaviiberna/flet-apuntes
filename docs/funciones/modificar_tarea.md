@@ -20,6 +20,18 @@ def modificar_tarea(fila):
     page.update()
 ```
 
+| Código | Qué hace |
+|---|---|
+| `def modificar_tarea(fila):` | Recibe la fila cuyo lápiz se ha pulsado. |
+| `texto = nueva_tarea.value.strip()` | Lee el texto nuevo del campo «Nueva tarea», sin espacios. |
+| `if not texto:` | Si está vacío… |
+| `nueva_tarea.error = "Escribe el texto nuevo"` | …muestra un error bajo el campo, |
+| `page.update() / return` | …lo dibuja y sale sin cambiar nada. |
+| `fila.controls[0].label = texto` | Cambia el texto del Checkbox (`controls[0]`) de **esa** fila. |
+| `nueva_tarea.error = None` | Quita el error si lo había. |
+| `nueva_tarea.value = ""` | Vacía el campo. |
+| `page.update()` | Redibuja para que se vea el texto nuevo. |
+
 !!! note "No llama a `actualizar_contador`"
     Cambiar el texto no cambia cuántas hay pendientes ni su estado, así que basta `page.update()`.
 

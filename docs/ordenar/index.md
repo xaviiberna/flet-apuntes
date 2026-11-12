@@ -7,6 +7,14 @@ tareas.controls.sort(key=lambda fila: fila.controls[0].label.lower())
 page.update()
 ```
 
+| Código | Qué hace |
+|---|---|
+| `tareas.controls` | La lista de filas de la columna (una lista normal de Python). |
+| `.sort(...)` | Ordena esa lista en el sitio. |
+| `key=lambda fila: ...` | Para cada fila, el valor por el que comparar. |
+| `fila.controls[0].label.lower()` | El texto del Checkbox en minúsculas → orden A-Z. |
+| `page.update()` | Redibuja para que se vea el nuevo orden. |
+
 Dos líneas. Todo lo demás es decidir **por qué** criterio ordenar y **dónde** poner el código.
 
 <div class="grid cards" markdown>

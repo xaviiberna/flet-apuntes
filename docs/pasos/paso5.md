@@ -2,7 +2,7 @@
 
 **Archivo:** `codigo/paso5_layouts_checkbox.py` · **Objetivo:** campo y botón en la misma fila; cada tarea es una casilla.
 
-```python title="paso5_layouts_checkbox.py" hl_lines="11 15 22"
+```python linenums="1" title="paso5_layouts_checkbox.py" hl_lines="11 15 22"
 --8<-- "codigo/paso5_layouts_checkbox.py"
 ```
 

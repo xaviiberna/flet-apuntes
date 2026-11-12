@@ -26,5 +26,14 @@ def main(page: ft.Page):
 ft.run(main)
 ```
 
+| Código | Qué hace |
+|---|---|
+| `def main(page: ft.Page):` | Define la función principal; `page` es la ventana. |
+| `page.title = "Lista de tareas"` | Título de la ventana. |
+| `page.padding = 20` | Margen interior de 20 px. |
+| `titulo = ft.Text(...)` | Crea el título; el `...` representa el resto de controles y funciones. |
+| `page.add(...)` | Añade todo a la página en el orden en que se verá. |
+| `ft.run(main)` | Arranca la app con esa función. |
+
 !!! note "Por qué las funciones están *dentro* de `main`"
     Así pueden usar `page`, `tareas`, `nueva_tarea`, `contador`… sin recibirlos como parámetros. A cambio, `main` crece. Con clases ([paso 9](../pasos/paso9.md)) esto se ordena.

@@ -19,6 +19,12 @@ tareas.controls.sort(
 )
 ```
 
+| Código | Qué hace |
+|---|---|
+| `(valor, texto)` | Una **tupla** con dos valores: se compara el primero y, si empatan, el segundo. |
+| `fila.controls[0].value` | 1.º criterio: `False` (pendiente) va antes que `True` (hecha). |
+| `fila.controls[0].label.lower()` | 2.º criterio: dentro de cada grupo, A-Z. |
+
 Python compara tuplas elemento a elemento: primero el estado (pendientes antes), y **dentro de cada grupo** por nombre.
 
 ## Un criterio descendente dentro de una tupla
@@ -29,6 +35,11 @@ Python compara tuplas elemento a elemento: primero el estado (pendientes antes),
 # más largas primero, y a igualdad de longitud, A-Z
 key=lambda fila: (-len(fila.controls[0].label), fila.controls[0].label.lower())
 ```
+
+| Código | Qué hace |
+|---|---|
+| `-len(...)` | Longitud en **negativo**: las más largas dan números más pequeños y van primero. |
+| `fila.controls[0].label.lower()` | A igual longitud, A-Z. |
 
 (El truco del `-` solo vale para números, no para textos.)
 
@@ -41,6 +52,11 @@ tareas.controls.sort(key=lambda f: f.controls[0].label.lower())   # 1.º: nombre
 tareas.controls.sort(key=lambda f: f.controls[0].value)           # 2.º: estado (mantiene A-Z dentro de cada grupo)
 ```
 
+| Código | Qué hace |
+|---|---|
+| `sort(key=lambda f: ...label.lower())` | 1.ª pasada: ordena A-Z. |
+| `sort(key=lambda f: f.controls[0].value)` | 2.ª pasada: separa pendientes y hechas. Como `sort` es estable, el A-Z se mantiene dentro de cada grupo. |
+
 El **último** `sort` es el criterio principal.
 
 ## Ordenar por prioridad (texto → número)
@@ -51,6 +67,12 @@ El **último** `sort` es el criterio principal.
 ORDEN_PRIORIDAD = {"Alta": 0, "Media": 1, "Baja": 2}
 lista.sort(key=lambda t: ORDEN_PRIORIDAD[t.prioridad])
 ```
+
+| Código | Qué hace |
+|---|---|
+| `ORDEN_PRIORIDAD = {...}` | Diccionario que traduce cada prioridad a un número. |
+| `ORDEN_PRIORIDAD[t.prioridad]` | Para cada tarea `t`, busca su número: Alta=0, Media=1, Baja=2. |
+| `lista.sort(key=...)` | Ordena por ese número: Alta primero. |
 
 Necesitas guardar la prioridad en cada tarea → [versión con clases](clases.md).
 
@@ -70,5 +92,17 @@ def ordenar_tareas(criterio, inverso=False):
     tareas.controls.sort(key=CRITERIOS[criterio], reverse=inverso)
     page.update()
 ```
+
+| Código | Qué hace |
+|---|---|
+| `CRITERIOS = {...}` | Diccionario: a cada nombre de criterio le corresponde su lambda. |
+| `"az": lambda fila: ...` | Criterio A-Z. |
+| `"estado": ...` | Pendientes primero. |
+| `"longitud": ...` | Textos más cortos primero. |
+| `"estado_az": ...` | Pendientes primero y A-Z dentro. |
+| `def ordenar_tareas(criterio, inverso=False):` | Recibe el nombre del criterio y si se invierte. |
+| `CRITERIOS[criterio]` | Coge la lambda de ese criterio y se la pasa a `sort`. |
+| `reverse=inverso` | Orden descendente si `inverso` es `True`. |
+| `page.update()` | Redibuja. |
 
 Para **añadir un criterio nuevo** solo hay que añadir una línea al diccionario y un botón.

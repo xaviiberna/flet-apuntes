@@ -4,7 +4,7 @@
 
 **Novedades:** `Checkbox(on_change=...)` · estado derivado · `e=None` · expresión generadora en `sum` · f-strings.
 
-```python title="paso8_app_final.py" hl_lines="12 15-19 37 46"
+```python linenums="1" title="paso8_app_final.py" hl_lines="12 15-19 37 46"
 --8<-- "codigo/paso8_app_final.py"
 ```
 
@@ -26,6 +26,14 @@ for fila in tareas.controls:
     if not checkbox.value:
         pendientes += 1
 ```
+
+| Código | Qué hace |
+|---|---|
+| `pendientes = 0` | Empieza el contador en cero. |
+| `for fila in tareas.controls:` | Recorre cada fila de la lista de tareas. |
+| `checkbox = fila.controls[0]` | Saca el primer control de la fila: el `Checkbox`. |
+| `if not checkbox.value:` | Si **no** está marcado (`value` es `False`)… |
+| `pendientes += 1` | …suma 1. Al acabar el bucle, `pendientes` tiene el total. |
 
 !!! note "Idea clave"
     El contador **no es un dato independiente**: se deduce de las casillas. En vez de sumar/restar 1 en cada evento (fácil equivocarse), se **recalcula entero** cada vez. Una función hace el cálculo y la llaman todos los eventos.

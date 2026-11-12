@@ -8,7 +8,7 @@
 | La llaman | los botones de ordenar, mediante `lambda e: ordenar_tareas("az")` |
 | Toca | el **orden** de `tareas.controls` (no cambia las filas, solo su posición) |
 
-```python title="codigo/ordenar_funcional.py (líneas 81-101)"
+```python linenums="81" title="codigo/ordenar_funcional.py (líneas 81-101)"
 --8<-- "codigo/ordenar_funcional.py:81:101"
 ```
 

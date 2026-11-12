@@ -2,7 +2,7 @@
 
 **Archivo:** `codigo/paso7_validacion.py` · **Objetivo:** no permitir tareas vacías y añadir con Enter.
 
-```python title="paso7_validacion.py" hl_lines="12 20-27"
+```python linenums="1" title="paso7_validacion.py" hl_lines="12 20-27"
 --8<-- "codigo/paso7_validacion.py"
 ```
 

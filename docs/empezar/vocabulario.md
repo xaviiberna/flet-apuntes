@@ -21,6 +21,13 @@ def main(page: ft.Page):
 ft.run(main)             # arranca la app
 ```
 
+| Código | Qué hace |
+|---|---|
+| `import flet as ft` | Importa Flet con el alias `ft`. |
+| `def main(page: ft.Page):` | Función principal: Flet la llama al arrancar y le pasa la ventana (`page`). |
+| `page.add(...)` | Añade controles a la ventana. Todo lo que se ve se crea dentro de `main`. |
+| `ft.run(main)` | Arranca la app indicando qué función construye la interfaz (sin paréntesis). |
+
 ## El flujo de toda app Flet
 
 ```mermaid

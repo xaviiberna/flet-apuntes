@@ -13,6 +13,12 @@ def eliminar_tarea(fila):
     actualizar_contador()
 ```
 
+| Código | Qué hace |
+|---|---|
+| `def eliminar_tarea(fila):` | Recibe la fila que hay que borrar. |
+| `tareas.controls.remove(fila)` | La quita de la lista de la columna. |
+| `actualizar_contador()` | Recalcula pendientes y redibuja. |
+
 !!! note "Por qué no es un manejador directo"
     Un manejador solo recibe `e`. Aquí hace falta saber **qué** fila: por eso el botón usa una [lambda](../controles/lambda.md) que captura `fila`.
 

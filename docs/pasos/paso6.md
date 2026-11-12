@@ -2,7 +2,7 @@
 
 **Archivo:** `codigo/paso6_borrar_tareas.py` · **Objetivo:** cada tarea es una fila con casilla + botón de borrar.
 
-```python title="paso6_borrar_tareas.py" hl_lines="14-16 19-28"
+```python linenums="1" title="paso6_borrar_tareas.py" hl_lines="14-16 19-28"
 --8<-- "codigo/paso6_borrar_tareas.py"
 ```
 

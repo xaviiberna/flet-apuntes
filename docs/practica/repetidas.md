@@ -8,6 +8,11 @@
 mensaje = ft.Text("", color=ft.Colors.ORANGE)   # vacío al principio; naranja
 ```
 
+| Código | Qué hace |
+|---|---|
+| `mensaje = ft.Text("", ...)` | Crea un texto **vacío**: no se ve nada hasta que le pongamos un `value`. |
+| `color=ft.Colors.ORANGE` | El aviso sale en naranja. |
+
 Y se añade a la página: `page.add(titulo, ..., mensaje, contador, tareas, ...)`.
 
 ## 2. La comprobación (dentro de `añadir_tarea`, **después** de comprobar que no está vacío y **antes** de crear la fila)

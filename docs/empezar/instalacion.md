@@ -12,6 +12,14 @@ Siempre se trabaja dentro de un **entorno virtual**: una carpeta con su propio P
     pip install flet             # instala Flet
     ```
 
+    | Código | Qué hace |
+    |---|---|
+    | `ls /usr/bin/python*` | Lista las versiones de Python instaladas, para usar la más moderna. |
+    | `mkdir todo && cd todo` | Crea la carpeta del proyecto (`todo`) y entra en ella. `&&` = ejecuta lo segundo si lo primero va bien. |
+    | `python3 -m venv env` | Crea el entorno virtual en la carpeta `env`. `-m venv` ejecuta el módulo que crea entornos. |
+    | `source env/bin/activate` | Activa el entorno: desde ahora `python` y `pip` son los de `env`. Verás `(env)` en el prompt. |
+    | `pip install flet` | Descarga e instala Flet **dentro del entorno**. |
+
 === "Windows (PowerShell)"
 
     ```powershell
@@ -20,6 +28,13 @@ Siempre se trabaja dentro de un **entorno virtual**: una carpeta con su propio P
     env\Scripts\Activate.ps1     # lo activa
     pip install flet
     ```
+
+    | Código | Qué hace |
+    |---|---|
+    | `mkdir todo; cd todo` | Crea la carpeta y entra. En PowerShell se separan comandos con `;`. |
+    | `py -m venv env` | Crea el entorno virtual. `py` es el lanzador de Python en Windows. |
+    | `env\Scripts\Activate.ps1` | Activa el entorno (en Windows está en `Scripts`, no en `bin`). |
+    | `pip install flet` | Instala Flet dentro del entorno. |
 
     !!! warning "Si PowerShell no deja activar el entorno"
         Ejecuta una vez `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` y vuelve a activar.

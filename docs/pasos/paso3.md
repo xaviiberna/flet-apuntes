@@ -2,7 +2,7 @@
 
 **Archivo:** `codigo/paso3_controles.py` · **Objetivo:** poner en pantalla los controles de entrada (todavía no hacen nada).
 
-```python title="paso3_controles.py"
+```python linenums="1" title="paso3_controles.py"
 --8<-- "codigo/paso3_controles.py"
 ```
 

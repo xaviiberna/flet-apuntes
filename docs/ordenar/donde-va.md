@@ -15,9 +15,20 @@ flowchart TD
 
 **Dentro de `main`, después de `modificar_tarea` y antes de `añadir_tarea`.**
 
-```python title="Líneas 81-101"
+```python linenums="81" title="Líneas 81-101"
 --8<-- "codigo/ordenar_funcional.py:81:101"
 ```
+
+| Código | Qué hace |
+|---|---|
+| `CRITERIOS = {` | Diccionario con los criterios: nombre → función key. |
+| `"az": lambda fila: fila.controls[0].label.lower()` | A-Z por el texto del Checkbox, sin distinguir mayúsculas. |
+| `"estado": lambda fila: fila.controls[0].value` | Por estado: `False` (pendiente) antes que `True`. |
+| `"longitud": lambda fila: len(fila.controls[0].label)` | Por número de letras. |
+| `"estado_az": lambda fila: (..., ...)` | Tupla: primero estado y, dentro, A-Z. |
+| `def ordenar_tareas(criterio, inverso=False):` | Función que ordena; `inverso` vale `False` si no se indica. |
+| `tareas.controls.sort(key=CRITERIOS[criterio], reverse=inverso)` | Ordena la lista de filas con el criterio elegido. |
+| `page.update()` | Redibuja con el nuevo orden. |
 
 !!! note "Por qué aquí"
     - Tiene que estar **dentro de `main`** para ver `tareas` y `page`.
@@ -29,9 +40,20 @@ flowchart TD
 
 **Después de definir `ordenar_tareas`, junto a los demás botones** (`boton`, `boton_borrar`).
 
-```python title="Líneas 172-184"
+```python linenums="172" title="Líneas 172-184"
 --8<-- "codigo/ordenar_funcional.py:172:184"
 ```
+
+| Código | Qué hace |
+|---|---|
+| `fila_ordenar = ft.Row(...)` | Fila horizontal con los botones de ordenar. |
+| `wrap=True` | Si no caben, saltan a la línea de abajo. |
+| `ft.Text("Ordenar:")` | Etiqueta delante de los botones. |
+| `on_click=lambda e: ordenar_tareas("az")` | A-Z. La lambda recibe `e` y pasa el criterio. |
+| `ordenar_tareas("az", inverso=True)` | Z-A: mismo criterio, invertido. |
+| `ordenar_tareas("estado")` | Pendientes primero. |
+| `ordenar_tareas("longitud")` | Cortas primero. |
+| `ordenar_tareas("estado_az")` | Pendientes primero y A-Z. |
 
 !!! note "Por qué lambda aquí"
     `on_click` solo entrega `e`, pero `ordenar_tareas` necesita el criterio. `lambda e: ordenar_tareas("az")` hace de intermediaria ([lambda explicada](../controles/lambda.md)).
@@ -47,6 +69,10 @@ En el `page.add(...)` del final, en la posición donde quieras verlos (aquí ent
 page.add(titulo, ft.Row([nueva_tarea, boton]), mensaje, contador, fila_ordenar, tareas, boton_borrar)
 #                                                                  ^^^^^^^^^^^^ nuevo
 ```
+
+| Código | Qué hace |
+|---|---|
+| `fila_ordenar` | La fila de botones, colocada entre el contador y la lista. |
 
 ## Resumen de 30 segundos
 
@@ -65,6 +91,13 @@ Llama a `ordenar_tareas("az")` al final de `añadir_tarea`, **antes** de `actual
     tareas.controls.sort(key=CRITERIOS["az"])   # mantiene la lista siempre ordenada
     actualizar_contador()
 ```
+
+| Código | Qué hace |
+|---|---|
+| `tareas.controls.append(fila)` | Añade la tarea nueva al final. |
+| `nueva_tarea.value = ""` | Vacía el campo. |
+| `tareas.controls.sort(key=CRITERIOS["az"])` | Reordena A-Z justo después de añadir: la lista siempre queda ordenada. |
+| `actualizar_contador()` | Recalcula y hace el `page.update()` que muestra el orden. |
 
 (No uses `ordenar_tareas(...)` aquí si no quieres un `page.update()` extra: `actualizar_contador` ya lo hace.)
 

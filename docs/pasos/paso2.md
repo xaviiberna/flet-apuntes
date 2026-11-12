@@ -4,7 +4,7 @@
 
 **Novedades:** `page.title`, `padding`, `theme_mode` · argumentos con nombre (`size`, `weight`) · enumeraciones.
 
-```python title="paso2_pagina_y_texto.py"
+```python linenums="1" title="paso2_pagina_y_texto.py"
 --8<-- "codigo/paso2_pagina_y_texto.py"
 ```
 

@@ -4,7 +4,7 @@
 
 **Novedades:** `main(page)` · `page.add(...)` · `ft.run(main)`
 
-```python title="paso1_hola_mundo.py"
+```python linenums="1" title="paso1_hola_mundo.py"
 --8<-- "codigo/paso1_hola_mundo.py"
 ```
 

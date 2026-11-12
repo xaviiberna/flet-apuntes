@@ -4,7 +4,7 @@
 
 **Novedades:** `ft.Column` como contenedor · funciones manejadoras y el parámetro `e` · `on_click` · **regla de oro: modificar → `page.update()`**
 
-```python title="paso4_eventos.py" hl_lines="12 15-18 20"
+```python linenums="1" title="paso4_eventos.py" hl_lines="12 15-18 20"
 --8<-- "codigo/paso4_eventos.py"
 ```
 

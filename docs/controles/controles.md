@@ -17,6 +17,13 @@
 ft.Text("Mis tareas", size=30, weight=ft.FontWeight.BOLD, color=ft.Colors.RED)
 ```
 
+| Código | Qué hace |
+|---|---|
+| `"Mis tareas"` | Texto que se muestra. |
+| `size=30` | Tamaño de letra. |
+| `weight=ft.FontWeight.BOLD` | Negrita. |
+| `color=ft.Colors.RED` | Color del texto. |
+
 Cambiar el texto: `contador.value = "..."`. Cambiar el color: `contador.color = ft.Colors.GREEN`.
 
 ## `TextField`
@@ -56,6 +63,12 @@ ft.Dropdown(
     options=[ft.DropdownOption(key="Alta"), ft.DropdownOption(key="Media"), ft.DropdownOption(key="Baja")],
 )
 ```
+
+| Código | Qué hace |
+|---|---|
+| `value="Media"` | Opción seleccionada al empezar. |
+| `options=[...]` | Lista de opciones del desplegable. |
+| `ft.DropdownOption(key="Alta")` | Una opción. Su `key` es lo que se guarda en `value` al elegirla. |
 
 `value` es la `key` de la opción elegida. Evento de selección: `on_select` (en versiones antiguas, `on_change`).
 

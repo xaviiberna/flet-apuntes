@@ -28,6 +28,13 @@ mkdocs serve                                        # http://127.0.0.1:8000
 
 La web quedará en `https://xaviiberna.github.io/flet-apuntes/`.
 
+## Versión sin internet (Linux)
+
+```bash
+python3 scripts/build_offline.py      # crea dist/flet-apuntes-offline/
+dist/flet-apuntes-offline/abrir.sh    # servidor local + navegador (Ctrl+C para cerrar)
+```
+
 ## Ejecutar las apps
 
 ```bash

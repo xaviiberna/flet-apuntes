@@ -7,6 +7,11 @@ numeros = [3, 1, 2]
 numeros.sort()          # [1, 2, 3]  (cambia la lista, no devuelve nada)
 ```
 
+| Código | Qué hace |
+|---|---|
+| `numeros = [3, 1, 2]` | Una lista de números desordenada. |
+| `numeros.sort()` | La ordena de menor a mayor. Cambia la propia lista y no devuelve nada. |
+
 Con números o textos simples funciona sin más. Pero una **fila de Flet** no es un número: es un objeto con muchas cosas dentro. Python no sabe por cuál comparar. Por eso existe `key`.
 
 ## 2. `key` = «dime por qué valor comparar»
@@ -19,6 +24,12 @@ palabras.sort(key=len)                      # por longitud → ['pera', 'kiwi', 
 palabras.sort(key=str.lower)                # sin distinguir mayúsculas
 ```
 
+| Código | Qué hace |
+|---|---|
+| `palabras = [...]` | Lista de textos. |
+| `palabras.sort(key=len)` | `len` se aplica a cada palabra: ordena por **longitud**. |
+| `palabras.sort(key=str.lower)` | Compara cada palabra en minúsculas: ordena A-Z sin distinguir mayúsculas. |
+
 ## 3. La `lambda` es esa función escrita en una línea
 
 Una lambda es una función **sin nombre**. Estas dos cosas son equivalentes:
@@ -29,6 +40,11 @@ Una lambda es una función **sin nombre**. Estas dos cosas son equivalentes:
     tareas.controls.sort(key=lambda fila: fila.controls[0].label.lower())
     ```
 
+    | Código | Qué hace |
+    |---|---|
+    | `lambda fila:` | Función sin nombre que recibe una fila. |
+    | `fila.controls[0].label.lower()` | Devuelve su texto en minúsculas; `sort` ordena por ese valor. |
+
 === "Con def"
 
     ```python
@@ -37,6 +53,12 @@ Una lambda es una función **sin nombre**. Estas dos cosas son equivalentes:
 
     tareas.controls.sort(key=texto_de)
     ```
+
+    | Código | Qué hace |
+    |---|---|
+    | `def texto_de(fila):` | La misma función, pero con nombre. |
+    | `return fila.controls[0].label.lower()` | Devuelve el texto de la fila en minúsculas. |
+    | `sort(key=texto_de)` | Se pasa la función **sin paréntesis**: `sort` la llamará para cada fila. |
 
 Se lee: *«para cada `fila`, compara por `fila.controls[0].label.lower()`»*.
 
@@ -60,6 +82,11 @@ En la app de la práctica cada fila es `Row([Checkbox, IconButton(lápiz), IconB
 tareas.controls.sort(key=..., reverse=True)   # descendente (Z-A)
 ```
 
+| Código | Qué hace |
+|---|---|
+| `key=...` | El criterio, como siempre. |
+| `reverse=True` | Invierte el orden: de mayor a menor (Z-A). |
+
 `sort` es **estable**: si dos elementos tienen el mismo valor de `key`, **mantienen el orden que ya tenían**. Esto permite ordenar en dos pasos (ver [recetas](recetas.md)).
 
 ## 6. `.sort()` vs `sorted()`
@@ -74,6 +101,11 @@ tareas.controls.sort(key=..., reverse=True)   # descendente (Z-A)
     ```python
     tareas.controls = tareas.controls.sort(key=...)   # ❌ sort devuelve None
     ```
+
+    | Código | Qué hace |
+    |---|---|
+    | `tareas.controls.sort(...)` | Ordena la lista… y devuelve `None`. |
+    | `tareas.controls = ...` | …así que guardas `None` en `tareas.controls` y la app falla. Escribe solo `tareas.controls.sort(...)`. |
     Dejas `tareas.controls` en `None` y la app falla. Usa `.sort(...)` **solo**, o `sorted(...)` **con** asignación.
 
 ## 7. Y después, `page.update()`
